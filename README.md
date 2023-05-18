@@ -1,4 +1,4 @@
-# Mod2 Week2 Assessment - <YOUR NAME HERE>
+# Mod2 Week2 Assessment - <Joe Centeno>
 
 ## Setup
 1. Fork this repository.
@@ -12,10 +12,13 @@
 **Important** Answer these questions in this file on your `main` branch.  When finished with the questions, commit and push your main branch.  You do not need to create a pull request yet!
 
 1. What does TDD stand for?
+TDD stands for test-driven development. TDD is a way of thinking when approaching a problem in code. The TDD process makes the programmer start with writing a failing test. You then write code relating to your test conditions until your test passes. 
 
-1. What are three benefits of using TDD?
+1. What are the three benefits of using TDD?
+The first befit to using TDD is having to write a failing test before you write any code. This allows the developer to get an idea of exactly what they need to write since they are setting up the test with conditions based on the desired output. The second befit is being able to iterate on your code when it's not passing a test, this allows the developer to step back and look at the test to determine what to do next. The third befit is that it forces you to write tests, making your code more coverage from bugs. 
 
 1. Imagine you are in an interview.  The interviewer asks: How do you use TDD? How would you answer?
+To start off TDD stands for test-driven development. I use TDD when I am approaching a coding problem/project I have not done before. TDD allows me to first create failing tests, making me outline the conditions for the desired output, and TDD allows me to iterate on problem/project code while being able to step back and look at the bigger picture through tests. 
 
 1. For the class below, outline the tests you would need.  Try to use as much C# syntax as possible. The first test has been provided for you. (this question is worth 4 points)
 ```c#
@@ -58,14 +61,62 @@ public void DogHasNameAttribute()
 
     Assert.Equal("Nile", dog.Name);
 }
+
+[Fact]
+public void DogHasBreedAttribute()
+{
+    Dog dog = new Dog("Nile", "Golden Retriever");
+
+    Assert.Equal("Golden Retriever", dog.Breed);
+}
+
+[Fact]
+public void DogHasIsHungryAttribute()
+{
+    Dog dog = new Dog("Nile", "Golden Retriever");
+
+    Assert.Equal(true, dog.IsHungry);
+}
+
+[Fact]
+public void DogCanEat()
+{
+    Dog dog = new Dog("Nile", "Golden Retriever");
+
+    dog.Sleep();
+
+    Assert.Equal(false, dog.IsHungry);
+}
+
+[Fact]
+public void DogCanSpeak()
+{
+    Dog dog = new Dog("Nile", "Golden Retriever");
+
+    dog.Eat();
+
+    Assert.Equal(true, dog.IsHungry);
+}
+
+[Fact]
+public void DogCanSleep()
+{
+    Dog dog = new Dog("Nile", "Golden Retriever");
+
+
+    Assert.Equal("Bark Bark!", dog.Speak());
+}
 ```
 
-5. What is a merge conflict, and when might you encounter one?
+What is a merge conflict, and when might you encounter one?
+A merge conflict is when the same file has had multiple changes occur on it at the same time in the same file line. This results in a human having to go through the files and choose what to keep, what's worth manually merging, or what to get rid of. You will most likely encounter merge conflicts when you're working on the same project with others and you all do your pull requests at the same time. 
 
-1. You and a partner are working on a project together.  Your partner is working on aa-branch; you are working on bb-branch.  In as much detail as possible, describe how you both would get your work combined onto the main branch.
+You and a partner are working on a project together.  Your partner is working on aa-branch; you are working on bb-branch.  In as much detail as possible, describe how you both would get your work combined onto the main branch.
+The aa-branch would first submit the pull request for the aa-branch. The owner of the repository would approve the pull request merging aa-branch with the main. The same process would then be done for the bb-branch merging both of them into the main by the end, but making sure to do one pull request before the other.
 
-1. Why is it good practice to have someone else approve and/or merge your PR?  
-  
+Why is it good practice to have someone else approve and/or merge your PR?  
+It's good practice because it allows the other person to review your code and also make sure that any code that is coming into the main branch is safe/stable code that won't effect main. 
+
 **Before moving on to the next section, commit your work and push your main branch!**
   
 ## Git Exercise (6 points possible)
